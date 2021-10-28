@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\AchievementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('question',[QuestionController::class, 'index']);
 Route::get('video/{mission}', [VideoController::class, 'getVideoByMissions']);
 Route::get('articles',[ArticleController::class, 'index']);
 Route::post('/generate-token', 'ChatController@generateToken');
+Route::post('achievement/store', [AchievementController::class, 'store']);
+Route::get('achievement/{id_user}', [AchievementController::class, 'index']);
