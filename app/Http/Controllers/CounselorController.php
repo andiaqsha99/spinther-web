@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Counselor;
 use Illuminate\Http\Request;
+use GetStream\StreamChat\Client as StreamClient;
 
 class CounselorController extends Controller
 {
@@ -13,6 +14,14 @@ class CounselorController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ]);
+
+        $client = new StreamClient(env("MIX_STREAM_API_KEY"), env("MIX_STREAM_API_SECRET"));
+        $newUser = [
+            'id' => strval($counselor->id),
+            'role' => 'user',
+            'name' => $counselor->username,
+        ];
+        $client->updateUser($newUser);
 
         if($counselor) {
             return response(
