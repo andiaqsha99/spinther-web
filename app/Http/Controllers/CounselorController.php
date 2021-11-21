@@ -55,4 +55,14 @@ class CounselorController extends Controller
             );
         }
     }
+
+    public function getAllCounselor() {
+        $counselor = Counselor::all();
+
+        if($counselor) {
+            return response([
+                'data' => $counselor
+            ], 200);
+        }
+    }
 }

@@ -85,4 +85,22 @@ class UserCounselorController extends Controller
             );
         }
     }
+
+    public function checkCounselorUser($user_id) {
+        $counselor = UserCounselor::where('user_id', $user_id)->first();
+
+        if($counselor) {
+            return response(
+                [
+                    'data' => true
+                ],200
+            );
+        } else {
+            return response(
+                [
+                    'data' => false
+                ],200
+            );
+        }
+    }
 }

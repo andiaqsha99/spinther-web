@@ -33,8 +33,10 @@ Route::get('achievement/{id_user}', [AchievementController::class, 'index']);
 
 Route::post('counselor/create',[CounselorController::class, 'createCounselor']);
 Route::post('counselor/login',[CounselorController::class, 'loginCounselor']);
+Route::get('counselor',[CounselorController::class, 'getAllCounselor']);
 
 Route::post('counselor/user/create',[UserCounselorController::class, 'createCounselorUser']);
 Route::get('counselor/{counselor_id?}/user',[UserCounselorController::class, 'getCounselorUser']);
 Route::get('counselor/{user_id?}/user/diagnosis',[UserCounselorController::class, 'getDiagnosisUser']);
 Route::post('counselor/user/diagnosis/create',[UserCounselorController::class, 'createDiagnosisUser']);
+Route::get('counselor/{user_id?}/check',[UserCounselorController::class, 'checkCounselorUser']);
