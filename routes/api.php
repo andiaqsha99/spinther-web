@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\ArtController;
 use App\Http\Controllers\CounselorController;
+use App\Http\Controllers\DrawingController;
 use App\Http\Controllers\UserCounselorController;
 
 /*
@@ -40,3 +42,7 @@ Route::get('counselor/{counselor_id?}/user',[UserCounselorController::class, 'ge
 Route::get('counselor/{user_id?}/user/diagnosis',[UserCounselorController::class, 'getDiagnosisUser']);
 Route::post('counselor/user/diagnosis/create',[UserCounselorController::class, 'createDiagnosisUser']);
 Route::get('counselor/{user_id?}/check',[UserCounselorController::class, 'checkCounselorUser']);
+
+Route::get('arts', [ArtController::class, 'index']);
+
+Route::get('drawings', [DrawingController::class, 'index']);
